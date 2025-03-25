@@ -27,6 +27,9 @@ module "vpc" {
     "kubernetes.io/role/private_elb"       = 1
 
   }
+ # Enable auto-assignment of public IPs on public subnets
+  public_subnet_map_public_ip_on_launch = true
+}
 }
 
 #EKS
