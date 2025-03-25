@@ -13,6 +13,7 @@ module "vpc" {
   enable_dns_hostnames = true
   enable_nat_gateway   = true
   single_nat_gateway   = true
+  map_public_ip_on_launch = true
 
   tags = {
     "kubernetes.io/cluster/my-eks-cluster" = "shared"
@@ -27,8 +28,7 @@ module "vpc" {
     "kubernetes.io/role/private_elb"       = 1
 
   }
- # Enable auto-assignment of public IPs on public subnets
-  public_subnet_map_public_ip_on_launch = true
+
 
 }
 
