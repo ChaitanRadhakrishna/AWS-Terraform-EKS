@@ -49,6 +49,21 @@ module "eks" {
       desired_size   = 2
       instance_types = var.instance_types
     }
+block_device_mappings = {
+        xvda = {
+          device_name = "/dev/xvda"
+
+          ebs = {
+            volume_size           = 20
+            volume_type           = "gp3"
+            iops                  = 3000
+            throughput            = 125
+            encrypted             = true
+            kms_key_id            = module.kms.key_arn
+            delete_on_termination = true
+          }
+        }
+      }
   }
   tags = {
     Environment = "dev"
