@@ -59,7 +59,6 @@ block_device_mappings = {
             iops                  = 3000
             throughput            = 125
             encrypted             = true
-            kms_key_id            = module.kms.key_arn
             delete_on_termination = true
           }
         }
